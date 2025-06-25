@@ -5,7 +5,7 @@ import '../styling/regiment.css'
 export default function MountedSentinels() {
   return (
     <div>
-      <section className="regiment-hero" style={{ backgroundImage: `url('/Images/regiments/banners/mountedsentinels.jpg')` }}>
+      <section className="regiment-hero" style={{ backgroundImage: `url('/Images/regiments/banners/mountedsentinels.png')` }}>
         <div className="regiment-hero-overlay">
           <img className="regiment-page-icon" src="/ImperialGuard/Images/regiments/icons/mountedsentinels.png" alt="Mounted Sentinels Emblem" />
           <h1 className="regiment-hero-title">Mounted Sentinels</h1>

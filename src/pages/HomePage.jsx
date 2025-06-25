@@ -11,7 +11,13 @@ const Regiment = ({ title, text }) => {
   const navigate = useNavigate();
 
   const imageFile = title.toLowerCase().replace(/\s+/g, '') + '.png';
-  const imageScr = '/ImperialGuard/Images/regiments/icons/' + imageFile;
+  let imageScr = '/ImperialGuard/Images/regiments/icons/' + imageFile;
+
+  if (title === "Scharfrichter Order") {
+    imageScr = '/ImperialGuard/Images/regiments/icons/ScharfrichterOrder.png';
+  } else if (title === "Mounted Sentinels") {
+    imageScr = '/ImperialGuard/Images/regiments/icons/MountedSentinels.png';
+  }
   const pagePath = regimentRoutes[title] || title.replace(/\s+/g, '');
 
   return (

@@ -5,7 +5,7 @@ import '../styling/regiment.css'
 export default function ScharfrichterOrder() {
   return (
     <div>
-      <section className="regiment-hero" style={{ backgroundImage: `url('/Imperial-Guard/Images/regiments/banners/scharfrichter.jpg')` }}>
+      <section className="regiment-hero" style={{ backgroundImage: `url('/ImperialGuard/Images/regiments/banners/scharfrichterorder.png')` }}>
         <div className="regiment-hero-overlay">
           <img className="regiment-page-icon" src="/ImperialGuard/Images/regiments/icons/scharfrichterorder.png" alt="SO Emblem" />
           <h1 className="regiment-hero-title">Scharfrichter Order</h1>
