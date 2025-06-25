@@ -12,7 +12,7 @@ import Gallery from './pages/Gallery.jsx'
 
 function App() {
   return (
-      <BrowserRouter basename='/Imperial-Guard'>
+      <BrowserRouter basename='/ImperialGuard'>
         <ScrollToTop />
         <Routes>
           <Route path='/' element={<Layout/>}>
