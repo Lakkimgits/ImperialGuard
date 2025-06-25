@@ -4,7 +4,7 @@ import '../styling/ranks.css';
 const groupId = 7380854; // group ID
 
 // Use the full backend URL for GitHub Pages!
-const API_BASE = 'https://roblox-proxy-vercel-two.vercel.app/api/roblox/group?groupId=7380854';
+const API_BASE = 'https://roblox-proxy-vercel-two.vercel.app';
 
 const Ranks = () => {
   const [groupData, setGroupData] = useState(null);
