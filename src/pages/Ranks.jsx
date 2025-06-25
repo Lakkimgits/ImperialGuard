@@ -4,7 +4,7 @@ import '../styling/ranks.css';
 const groupId = 7380854; // group ID
 
 // Use the full backend URL for GitHub Pages!
-const API_BASE = 'https://roblox-proxy-vercel-two.vercel.app';
+const API_BASE = 'https://roblox-proxy-vercel-two.vercel.app/api/roblox/group?groupId=7380854';
 
 const Ranks = () => {
   const [groupData, setGroupData] = useState(null);
@@ -62,7 +62,7 @@ const Ranks = () => {
       }
       try {
         const url =
-          `${API_BASE}/api/roblox/thumbnails?userIds=${userIds.join(",")}&size=100x100&format=Png&isCircular=true`;
+          `${API_BASE}/api/thumbnails?userIds=${userIds.join(",")}&size=100x100&format=Png&isCircular=true`;
         const res = await fetch(url);
         const data = await res.json();
         const thumbObj = {};
