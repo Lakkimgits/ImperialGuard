@@ -1,0 +1,554 @@
+body{
+  background-color: rgba(255, 255, 255, 0.808); 
+  padding: 0;
+  margin: 0;
+}
+
+html, body{
+  max-width: 100vw;
+  overflow-x: hidden; 
+
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+#topBar {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.93);
+  width: 100%;
+  height: 10vh;
+  padding: 0 1.5rem;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border-bottom: 1px solid #ececec;
+  gap: 1vw;
+  overflow-x: hidden;
+  overflow: visible; 
+}
+
+#left-logo,
+#right-logo {
+  height: 60%;
+  min-width: 40px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 2px #999);
+  margin-left: 1vw;
+  margin-right: 1vw;
+  transition: transform 0.2s;
+}
+
+#left-logo:hover,
+#right-logo:hover {
+  transform: scale(1.08);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2vw;
+  align-items: center;
+  z-index: 2;
+}
+
+.nav-links a {
+  font-size: 1.1vw;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  color: #3B4252;
+  padding: 0.4em 1em;
+  border-radius: 8px;
+  transition: background 0.18s, color 0.18s;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+  background: linear-gradient(90deg, #ff9900 30%, #70253b 90%);
+  color: #fff;
+}
+
+#nav-left {
+  margin-right: 1vw;
+}
+
+#nav-right {
+  margin-left: 1vw;
+}
+
+#IG-ul-title {
+  flex: 1 1 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; 
+  z-index: 1;
+  min-width: 0;
+  width: auto;
+}
+
+#IG-ul-title h1 {
+  text-align: center;
+  margin: 0;
+  font-family: 'IM Fell English', serif;
+  font-size: 2vw;
+  background: rgba(255,255,255,0.85);
+  display: inline-block;
+  padding: 0.15em 1.2em;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  color: #3B4252;
+  letter-spacing: 0.1em;
+  pointer-events: auto;
+  user-select: text;
+  white-space: nowrap;
+  max-width: 60vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 900px) {
+  #topBar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 0.5em 1vw;
+    gap: 0.5vw;
+  }
+  #IG-ul-title h1 {
+    font-size: 4vw;
+    padding: 0.2em 0.8em;
+  }
+  .nav-links a {
+    font-size: 2.8vw;
+    padding: 0.3em 0.5em;
+  }
+  #left-logo, #right-logo {
+    height: 40px;
+  }
+}
+
+/* --- Dropdown Styling: visually consistent, modern, and fits the app theme --- */
+
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Button: styled like nav links, but with subtle chevron */
+.dropbtn {
+  font-size: 1.1vw;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  background: none;
+  color: #3B4252;
+  padding: 0.4em 1em;
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  transition: 
+    background 0.18s, 
+    color 0.18s,
+    box-shadow 0.15s;
+  position: relative;
+}
+.dropbtn::after {
+  content: '';
+  display: inline-block;
+  margin-left: 0.35em;
+  border: solid #3B4252;
+  border-width: 0 2px 2px 0;
+  padding: 3px;
+  transform: rotate(45deg);
+  transition: border-color 0.18s;
+}
+.dropbtn[aria-expanded="true"] {
+  background: linear-gradient(90deg, #ff9900 30%, #70253b 90%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(255,153,0,0.09);
+}
+.dropbtn[aria-expanded="true"]::after {
+  border-color: #fff;
+}
+.dropbtn:hover,
+.dropbtn:focus {
+  background: linear-gradient(90deg, #ff9900 30%, #70253b 90%);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(255,153,0,0.09);
+}
+.dropbtn:hover::after,
+.dropbtn:focus::after {
+  border-color: #fff;
+}
+
+/* Dropdown content: visually floating, softly shadowed, escapes nav bar */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 105%;
+  min-width: 220px;
+  width: 150%;
+  background: rgba(255,255,255,0.98);
+  box-shadow: 0 8px 32px 0 rgba(112,37,59,0.13), 0 1.5px 3px rgba(0,0,0,0.10);
+  border-radius: 0 0 14px 14px;
+  overflow: hidden;
+  z-index: 9999;
+  border-top: 2.5px solid #ff9900;
+  animation: dropdown-fade-in 0.28s cubic-bezier(.4,2,.6,1);
+  margin-top: 3px;
+}
+@keyframes dropdown-fade-in {
+  from { opacity: 0; transform: translateY(8px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* Show dropdown if .show class is applied by React (click/toggle) */
+.dropdown-content.show {
+  display: block;
+}
+
+/* Links inside the dropdown: large click targets, elegant highlight */
+.dropdown-content a {
+  color: #3B4252;
+  font-size: 1.08vw;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-weight: 500;
+  padding: 0.8em 1.25em;
+  text-decoration: none;
+  display: block;
+  border-left: 4px solid transparent;
+  transition: 
+    background 0.17s,
+    color 0.17s,
+    border-color 0.18s;
+  letter-spacing: 0.02em;
+}
+.dropdown-content a:hover, 
+.dropdown-content a:focus {
+  background: linear-gradient(90deg, #ff9900 30%, #70253b 90%);
+  color: #fff;
+  border-left: 4px solid #ff9900;
+}
+
+/* Remove old hover-based openers for the dropdown, now controlled by React
+.nav-dropdown:hover .dropdown-content,
+.nav-dropdown:focus-within .dropdown-content {
+  display: block;
+}
+*/
+
+@media (max-width: 900px) {
+  .dropbtn,
+  .dropdown-content a {
+    font-size: 2.8vw;
+    padding: 0.5em 1em;
+  }
+  .dropdown-content {
+    min-width: 60vw;
+    width: 100%;
+  }
+}
+
+/* --- End dropdown --- */
+
+#hero-section{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10vh;
+  height: 80vh;
+  overflow: hidden;
+}
+
+#hero-image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+#hero-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 0;
+  width: 60%;
+  height: 60%;
+}
+
+#hero-text{
+  font-size: 4vw;
+  margin: 0;
+}
+
+.hero-things{
+  color: white;
+  text-shadow: 2px 2px #000000;
+  font-size: 2vw;
+}
+
+
+#intro-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 3rem;
+  padding: 5vh 0 5vh 0;
+  background: linear-gradient(120deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 60vh;
+}
+
+.intro-container {
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1.5px 3px rgba(0,0,0,0.08);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 600px;
+  width: 100%;      
+  transition: transform 0.2s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+  border-left: 6px solid #5d6777;
+  margin: 0 auto;
+  overflow-x: clip; 
+}
+
+.intro-container:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 3px 8px rgba(0,0,0,0.10);
+  border-left: 6px solid #3B4252;
+}
+
+.intro-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #3B4252;
+  margin-bottom: 0.5rem;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+}
+
+.intro-text {
+  font-size: 1.15rem;
+  color: #444950;
+  line-height: 1.6;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+#regiment-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5%;
+  width: 100vw;
+}
+
+.regiment{
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1.5px 3px rgba(0,0,0,0.08);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 15vw;
+  transition: transform 0.2s cubic-bezier(.4,2,.6,1), box-shadow 0.2s;
+  border-left: 6px solid #5d6777;
+  gap: 1rem;
+}
+
+.regiment:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12), 0 3px 8px rgba(0,0,0,0.10);
+  border-left: 6px solid #3B4252;
+}
+
+.regiment-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #3B4252;
+  margin: 0; 
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+}
+
+.regiment-text {
+  font-size: 1.3em;
+  color: #444950;
+  line-height: 1.6;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+} 
+
+.regiment-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start; 
+  gap: 1rem; 
+}
+
+.regiment-icons {
+  aspect-ratio: 1/1;
+  width: 2.5rem;
+  object-fit: contain;
+}
+
+.regimental-read-more {
+  color: #fff;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  padding: 0.7em 1.5em;
+  margin-top: auto;
+  align-self: stretch; 
+  box-shadow: 0 2px 8px rgba(112, 37, 59, 0.08);
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  outline: none;
+  background: linear-gradient(135deg, #70253b 0%, #ff9900 100%);
+  background-size: 200% 200%;
+  background-position: left center;
+  transition: 
+    color 0.25s cubic-bezier(.4,2,.6,1),
+    box-shadow 0.25s cubic-bezier(.4,2,.6,1),
+    transform 0.3s ease-in;
+}
+
+.regimental-read-more:hover, .regimental-read-more:focus {
+  color: #fffbe8;
+  box-shadow: 0 6px 24px rgba(112, 37, 59, 0.13);
+  transform: scale(1.05);
+}
+
+.regimental-read-more:active {
+  transform: scale(0.98);
+}
+
+.sub-title{
+  font-size: 3.5rem;
+}
+
+.ig-footer {
+  width: 100%;
+  background: linear-gradient(90deg, #3B4252 0%, #70253b 100%);
+  color: #fff;
+  padding: 1.2rem 0 0.8rem 0;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.07);
+}
+
+.ig-footer-content {
+  max-width: 1150px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0 2vw;
+}
+
+.ig-footer-left {
+  flex: 0 0 auto;
+}
+.ig-footer-logo {
+  height: 2.2rem;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  filter: drop-shadow(0 0 2px #111a);
+}
+
+.ig-footer-center {
+  flex: 1 1 0;
+  text-align: center;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+.ig-footer-center a {
+  color: #ff9900;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.ig-footer-center a:hover {
+  color: #fffbe8;
+  text-decoration: underline;
+}
+
+.ig-footer-right {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 1.4rem;
+}
+
+.ig-footer-right a {
+  color: #fffbe8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  font-size: 1rem;
+}
+.ig-footer-right a:hover {
+  color: #ff9900;
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  .ig-footer-content {
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 0 1vw;
+  }
+  .ig-footer-center {
+    font-size: 0.98rem;
+  }
+  .ig-footer-logo {
+    height: 1.6rem;
+  }
+  .ig-footer-right a {
+    font-size: 0.97rem;
+  }
+}
+
+@media (max-width: 1920px) {
+  #regiment-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .regiment {
+    width: 90vw;
+    max-width: 400px;
+  }
+  .regiment-header {
+    justify-content: center; 
+  }
+  .regiment-icons {
+    width: 2rem; 
+  }
+}

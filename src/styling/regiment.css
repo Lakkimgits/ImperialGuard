@@ -1,0 +1,157 @@
+/* --- Paladins Unit Regiment Page CSS --- */
+
+/* Hero Section */
+.regiment-hero {
+  height: 20vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+.regiment-hero-overlay {
+  background: rgba(255,255,255,0.89);
+  border-radius: 0 0 18px 18px;
+  width: 100%;
+  padding: 1.3rem 0 1rem 0;
+  text-align: center;
+  box-shadow: 0 3px 18px rgba(112,37,59,0.11);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4em;
+}
+.regiment-page-icon {
+  width: 4.2rem;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  margin-bottom: 0.4em;
+  filter: drop-shadow(0 2px 6px #3B425299);
+  background: #fff;
+  border-radius: 50%;
+  border: 2px solid #ff9900;
+  padding: 0.11em;
+}
+.regiment-hero-title {
+  font-family: 'IM Fell English', serif;
+  font-size: 2.5rem;
+  color: #70253b;
+  letter-spacing: 0.07em;
+  margin: 0;
+}
+.regiment-hero-motto {
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  color: #3B4252;
+  font-size: 1.08rem;
+  font-style: italic;
+  margin: 0.2em 0 0 0;
+}
+
+/* Main Info Card ("scroll") */
+.regiment-scroll {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1.5px 3px rgba(0,0,0,0.08);
+  padding: 2.5rem 2rem 2rem 2rem;
+  max-width: 700px;
+  margin: 2rem auto;
+  border-left: 8px solid #ff9900;
+}
+.regiment-section-title {
+  font-size: 2rem;
+  font-family: 'IM Fell English', serif;
+  color: #70253b;
+  margin-top: 1.2rem;
+  margin-bottom: 0.4em;
+}
+.regiment-divider {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, #ff9900 0%, #70253b 100%);
+  margin: 2rem 0;
+  border-radius: 2px;
+}
+
+.regiment-bullets {
+  margin: 0.5em 0 0.5em 0.5em;
+  padding-left: 1.2em;
+  font-size: 1.13em;
+  color: #3B4252;
+}
+.regiment-bullets li {
+  margin-bottom: 0.25em;
+  line-height: 1.5;
+}
+
+/* Crosses section (Green, Red, Blue) */
+.regiment-crosses {
+  display: flex;
+  gap: 1.2em;
+  flex-wrap: wrap;
+  margin-bottom: 1.1em;
+}
+.cross-card {
+  flex: 1 1 170px;
+  min-width: 170px;
+  background: #f8f9fa;
+  border-radius: 11px;
+  box-shadow: 0 1px 7px rgba(112,37,59,0.07);
+  padding: 1em 1.1em 0.7em 1.1em;
+  border-left: 6px solid #ccc;
+  margin-bottom: 0.5em;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.cross-card h3 {
+  margin: 0 0 0.2em 0;
+  font-size: 1.14em;
+  font-family: 'IM Fell English', serif;
+  color: #3B4252;
+}
+.cross-card.green { border-left-color: #3cb371; }
+.cross-card.red { border-left-color: #b6001b; }
+.cross-card.blue { border-left-color: #1c5a99; }
+.cross-card:hover {
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 3px 18px rgba(112,37,59,0.12);
+}
+.cross-name {
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-size: 0.98em;
+  font-weight: 500;
+  background: #efeceb;
+  color: #3B4252;
+  border-radius: 8px;
+  padding: 0.05em 0.5em;
+  margin-left: 0.5em;
+}
+
+/* Quotes and highlights */
+.regiment-quote {
+  background: #f5f7fa;
+  border-left: 4px solid #ff9900;
+  border-radius: 7px;
+  font-size: 1.13em;
+  margin: 1.2em 0;
+  padding: 1em 1.5em 1em 1.2em;
+  color: #444950;
+  font-style: italic;
+}
+.regiment-quote-author {
+  font-style: normal;
+  font-size: 0.93em;
+  color: #6d6d6d;
+  display: block;
+  margin-top: 0.6em;
+  letter-spacing: 0.03em;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .regiment-hero-title { font-size: 6vw; }
+  .regiment-scroll { padding: 1.4rem 0.7rem; }
+  .regiment-section-title { font-size: 1.4rem; }
+  .regiment-crosses { flex-direction: column; gap: 0.8em; }
+  .cross-card { min-width: 0; }
+}
