@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './assets/ScrollToTop.jsx';
 
 import Home from './pages/HomePage.jsx'
@@ -12,19 +12,19 @@ import Gallery from './pages/Gallery.jsx'
 
 function App() {
   return (
-      <BrowserRouter basename='/ImperialGuard'>
-        <ScrollToTop />
-        <Routes>
-          <Route path='/' element={<Layout/>}>
-            <Route index element={<Home />}></Route>
-            <Route path="Ranks" element={<Ranks/>} />
-            <Route path="Paladins" element={<Paladins/>} />
-            <Route path="MountedSentinels" element={<MountedSentinels/>} />
-            <Route path="ScharfrichterOrder" element={<ScharfrichterOrder/>} />
-            <Route path="Gallery" element={<Gallery/>} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+    <HashRouter>
+      <ScrollToTop />
+      <Routes>
+        <Route path='/' element={<Layout/>}>
+          <Route index element={<Home />} />
+          <Route path="Ranks" element={<Ranks/>} />
+          <Route path="Paladins" element={<Paladins/>} />
+          <Route path="MountedSentinels" element={<MountedSentinels/>} />
+          <Route path="ScharfrichterOrder" element={<ScharfrichterOrder/>} />
+          <Route path="Gallery" element={<Gallery/>} />
+        </Route>
+      </Routes>
+    </HashRouter>
   )
 }
 
