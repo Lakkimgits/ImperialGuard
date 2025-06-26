@@ -52,7 +52,6 @@
     border-bottom: none;
     box-shadow: 0 5px 28px 0 rgba(66, 135, 245, 0.13);
     transform: scale(1.07);
-    /* Optional: subtle blue glow/border for active */
     box-shadow: 0 0 0 3px #7fd4fd77, 0 5px 28px 0 rgba(66, 135, 245, 0.13);
     z-index: 1;
 }
