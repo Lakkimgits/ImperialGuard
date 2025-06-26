@@ -4,7 +4,7 @@ import '../styling/regiment.css'
 export default function PaladinsUnit() {
   return (
     <div>
-      <section className="regiment-hero" style={{ backgroundImage: `url('/Images/regiments/banners/paladins.png')` }}>
+      <section className="regiment-hero" style={{ backgroundImage: `url('Impe/Images/regiments/paladin-bg.png')` }}>
         <div className="regiment-hero-overlay">
           <img className="regiment-page-icon" src="/ImperialGuard/Images/regiments/icons/paladinsunit.png" alt="Paladins Emblem" />
           <h1 className="regiment-hero-title">Paladins Unit</h1>

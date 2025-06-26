@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import '../styling/gallery.css';
 
+const GENERAL_IMAGES = import.meta.glob('../assets/gallery/General/*.png', { eager: true });
+const GFX_IMAGES = import.meta.glob('../assets/gallery/GFX/*.png', { eager: true });
+const PR_IMAGES = import.meta.glob('../assets/gallery/PRs/*.png', { eager: true });
+
+const formatImages = (imageObj, label) =>
+  Object.entries(imageObj).map(([path, module]) => ({
+    src: module.default,
+    alt: `${label} image: ${path.split('/').pop().replace('.png', '').replace(/[_-]/g, ' ')}`,
+  }));
+
 const galleryImages = {
-  General: [
-    { src: '/images/general1.png', alt: 'General Image 1' },
-    { src: '/images/general2.png', alt: 'General Image 2' },
-  ],
-  GFX: [
-    { src: '/images/gfx1.png', alt: 'GFX Image 1' },
-    { src: '/images/gfx2.png', alt: 'GFX Image 2' },
-  ],
-  PRs: [
-    { src: '/images/prs1.png', alt: 'PRs Image 1' },
-    { src: '/images/prs2.png', alt: 'PRs Image 2' },
-  ],
+  General: formatImages(GENERAL_IMAGES, "General"),
+  GFX: formatImages(GFX_IMAGES, "GFX"),
+  PRs: formatImages(PR_IMAGES, "PRs"),
 };
 
 const Gallery = () => {
@@ -33,6 +34,7 @@ const Gallery = () => {
               key={choice}
               className={`gallerybtn ${choiceClicked === choice ? 'active' : ''}`}
               onClick={() => handleChoiceClick(choice)}
+              aria-pressed={choiceClicked === choice}
             >
               {choice}
             </button>
@@ -42,9 +44,13 @@ const Gallery = () => {
 
       <div id='gallery-content'>
         <div className='gallery-images'>
-          {(galleryImages[choiceClicked] || []).map((img, idx) => (
-            <img key={idx} src={img.src} alt={img.alt} className='gallery-image' />
-          ))}
+          {(galleryImages[choiceClicked] || []).length === 0 ? (
+            <div className="gallery-empty">No images found for this category.</div>
+          ) : (
+            galleryImages[choiceClicked].map((img, idx) => (
+              <img key={idx} src={img.src} alt={img.alt} className='gallery-image' />
+            ))
+          )}
         </div>
       </div>
     </div>

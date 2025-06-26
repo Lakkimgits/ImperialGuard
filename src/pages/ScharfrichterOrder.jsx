@@ -14,7 +14,7 @@ export default function ScharfrichterOrder() {
       </section>
 
       <section className="regiment-scroll">
-        <h2 className="regiment-section-title">What is the Scharfrichter?</h2>
+        <h2 className="regiment-section-title">What is the Scharfrichter Order?</h2>
         <p>
           The Scharfrichter Order is a specialized regiment within the Imperial Guard, entrusted with upholding internal security and discipline. Members of the Order are responsible for maintaining standards, issuing warnings, and ensuring that the Guard remains loyal and effective in their service.
         </p>
