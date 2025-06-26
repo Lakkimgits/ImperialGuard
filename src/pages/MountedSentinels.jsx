@@ -1,12 +1,13 @@
 import React from 'react'
 import '../styling/regiment.css'
+import MSIcon from '../assets/MountedSentinels.png'
 
 export default function MountedSentinels() {
   return (
     <div>
       <section className="regiment-hero" style={{ backgroundImage: `url('/Images/regiments/banners/mountedsentinels.png')` }}>
         <div className="regiment-hero-overlay">
-          <img className="regiment-page-icon" src='/Images/regiments/icons/mountedsentinels.png' alt="Mounted Sentinels Emblem" />
+          <img className="regiment-page-icon" src={MSIcon} alt="Mounted Sentinels Emblem" />
           <h1 className="regiment-hero-title">Mounted Sentinels</h1>
           <p className="regiment-hero-motto">"Born to ride, destined to defend"</p>
         </div>

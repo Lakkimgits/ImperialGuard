@@ -1,12 +1,13 @@
 import React from 'react'
 import '../styling/regiment.css'
+import SOIcon from '../assets/ScharfrichterOrder.png'
 
 export default function ScharfrichterOrder() {
   return (
     <div>
       <section className="regiment-hero" style={{ backgroundImage: `url('/ImperialGuard/Images/regiments/banners/scharfrichterorder.png')` }}>
         <div className="regiment-hero-overlay">
-          <img className="regiment-page-icon" src='/Images/regiments/icons/scharfrichterorder.png' alt="SO Emblem" />
+          <img className="regiment-page-icon" src={SOIcon} alt="SO Emblem" />
           <h1 className="regiment-hero-title">Scharfrichter Order</h1>
           <p className="regiment-hero-motto">"Without order there is nothing"</p>
         </div>
