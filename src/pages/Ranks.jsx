@@ -110,7 +110,7 @@ const Ranks = () => {
             ? "Loading..."
             : error
             ? "N/A"
-            : groupData?.memberCount ?? "N/A"
+            : filteredMembers.length
           }
         </p>
 
