@@ -25,6 +25,10 @@ const Gallery = () => {
     console.log(`Choice clicked: ${choice}`);
   };
 
+  const handleImageClick = (image) => {
+    console.log(`Image clicked: ${image.alt}`);
+  };
+
   return (
     <div id='gallery-page'>
       <div id='gallery-choices'>
@@ -48,7 +52,7 @@ const Gallery = () => {
             <div className="gallery-empty">No images found for this category.</div>
           ) : (
             galleryImages[choiceClicked].map((img, idx) => (
-              <img key={idx} src={img.src} alt={img.alt} className='gallery-image' />
+              <img key={idx} src={img.src} alt={img.alt} className='gallery-image' onClick={() => handleImageClick(img, idx)}/>
             ))
           )}
         </div>
