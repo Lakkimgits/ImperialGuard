@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import '../styling/gallery.css';
 
 const GENERAL_IMAGES = import.meta.glob('../assets/gallery/General/*.png', { eager: true });
-const GFX_IMAGES = import.meta.glob('../assets/gallery/GFX/*.png', { eager: true });
-const PR_IMAGES = import.meta.glob('../assets/gallery/PRs/*.png', { eager: true });
+const GFX_IMAGES = import.meta.glob('../assets/gallery/GFX/*.jpg', { eager: true });
+const PR_IMAGES = import.meta.glob('../assets/gallery/PRs/*.jpg', { eager: true });
 
 const formatImages = (imageObj, label) =>
   Object.entries(imageObj).map(([path, module]) => ({
